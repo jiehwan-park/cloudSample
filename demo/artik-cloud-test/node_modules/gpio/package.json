@@ -1,0 +1,6 @@
+{
+  "name": "gpio",
+  "version": "0.0.1",
+  "description": "gpio module",
+  "main": "./build/Release/gpio"
+}

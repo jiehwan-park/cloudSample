@@ -1,0 +1,37 @@
+sdb root on
+
+#create repository for patch files
+sdb shell mkdir -p /tmp/patchtmp
+
+#date setting
+sdb shell date -s '2016-10-07 13:00:00'
+
+#install npm
+sdb push demo/nodejs-npm*.rpm /tmp/patchtmp
+sdb shell rpm -Uvh --nodeps --force nodejs-npm*.rpm
+
+#install iotbus packages
+#capi-iotbus / capi-iotbus-server / node-iotbus
+sdb push demo/capi-iotbus*.rpm
+sdb push demo/node-iotbus*.rpm
+sdb shell rpm -e --nodeps capi-iotbus
+sdb shell rpm -e --nodeps capi-iotbus-server
+sdb shell rpm -e --nodeps node-iotbus
+sdb shell rpm -Uvh --nodeps --force capi_iotbus*.rpm
+sdb shell rpm -Uvh --nodeps --force node-iotbus*.rpm
+
+#copy artik-cloud-test
+sdb push demo/artik-cloud-test /home/owner/artik-cloud-test
+
+#execute js [ARTIK5]
+sdb shell node /home/owner/artik-cloud-test/sensor_things.js
+
+#execute js [ARTIK10]
+sdb shell node /home/owner/artik-cloud-test/actuator_things.js
+sdb shell node /home/owner/artik-cloud-test/add_rule2.js
+
+sdb shell sync
+sdb shell sync
+sdb shell sync
+
+sdb shell reboot -f

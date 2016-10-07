@@ -1,0 +1,6 @@
+{
+  "name": "i2c",
+  "version": "0.0.1",
+  "description": "i2c module",
+  "main": "./build/Release/i2c"
+}

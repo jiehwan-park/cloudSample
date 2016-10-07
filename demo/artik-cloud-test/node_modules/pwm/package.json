@@ -1,0 +1,6 @@
+{
+  "name": "pwm",
+  "version": "0.0.1",
+  "description": "pwm module",
+  "main": "./build/Release/pwm"
+}
