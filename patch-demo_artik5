@@ -11,14 +11,11 @@ sdb push demo/nodejs-npm*.rpm /tmp/patchtmp
 sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/nodejs-npm*.rpm
 
 #install iotbus packages
-#capi-iotbus / capi-iotbus-server / node-iotbus
+#capi-iotbus / capi-iotbus-server
 sdb push demo/capi-iotbus*.rpm /tmp/patchtmp
-sdb push demo/node-iotbus*.rpm /tmp/patchtmp
 sdb shell rpm -e --nodeps capi-iotbus
 sdb shell rpm -e --nodeps capi-iotbus-server
-sdb shell rpm -e --nodeps node-iotbus
 sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/capi-iotbus-*.rpm
-sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/node-iotbus*.rpm
 
 #copy artik-cloud-test
 sdb push demo/artik-cloud-test /home/owner/artik-cloud-test
