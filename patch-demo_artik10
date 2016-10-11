@@ -28,7 +28,8 @@ sdb push demo/artik-cloud-test /home/owner/artik-cloud-test
 
 echo -e "\n\n-------------execute js [ARTIK10]-------------"
 #execute js [ARTIK10]
-sdb shell node /home/owner/artik-cloud-test/actuator_things.js
+sdb push demo/node-iotbus_artik10*.rpm /tmp/patchtmp
+sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/node-iotbus_artik10*.rpm
 
 sdb shell sync
 sdb shell sync

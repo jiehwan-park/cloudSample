@@ -43,5 +43,5 @@ function updateSensor(){
 }
 
 // Every 5 seconds, sensor data will be updated to ARTIK cloud
-iv = setInterval(updateSensor, 5000);
+iv = setInterval(updateSensor, 1000);
 
