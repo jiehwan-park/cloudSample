@@ -22,7 +22,6 @@ sdb push demo/artik-cloud-test /home/owner/artik-cloud-test
 
 #execute js [ARTIK10]
 sdb shell node /home/owner/artik-cloud-test/actuator_things.js
-sdb shell node /home/owner/artik-cloud-test/add_rule2.js
 
 sdb shell sync
 sdb shell sync
