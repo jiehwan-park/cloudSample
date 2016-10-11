@@ -3,13 +3,18 @@ sdb root on
 #create repository for patch files
 sdb shell mkdir -p /tmp/patchtmp
 
+echo -e "\n\n-------------date setting-------------"
 #date setting
-sdb shell date -s '2016-10-07 13:00:00'
+sdb shell date -s '2016-10-11 18:00:00'
+sdb shell systemctl stop alarm-server
+sdb shell hwclock --systohc
 
+echo -e "\n\n-------------install npm-------------"
 #install npm
 sdb push demo/nodejs-npm*.rpm /tmp/patchtmp
 sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/nodejs-npm*.rpm
 
+echo -e "\n\n-------------install iotbus packages-------------"
 #install iotbus packages
 #capi-iotbus / capi-iotbus-server
 sdb push demo/capi-iotbus*.rpm /tmp/patchtmp
@@ -17,9 +22,11 @@ sdb shell rpm -e --nodeps capi-iotbus
 sdb shell rpm -e --nodeps capi-iotbus-server
 sdb shell rpm -Uvh --nodeps --force /tmp/patchtmp/capi-iotbus-*.rpm
 
+echo -e "\n\n-------------copy artik-cloud-test-------------"
 #copy artik-cloud-test
 sdb push demo/artik-cloud-test /home/owner/artik-cloud-test
 
+echo -e "\n\n-------------execute js [ARTIK10]-------------"
 #execute js [ARTIK10]
 sdb shell node /home/owner/artik-cloud-test/actuator_things.js
 
@@ -27,4 +34,4 @@ sdb shell sync
 sdb shell sync
 sdb shell sync
 
-#sdb shell reboot -f
+sdb shell reboot -f
