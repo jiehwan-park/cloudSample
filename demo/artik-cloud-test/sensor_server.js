@@ -5,8 +5,8 @@ var WebSocket = require('ws');
 var isWebSocketReady = false;
 var ws = null;
 var webSocketUrl = "wss://api.artik.cloud/v1.1/websocket?ack=true";
-var device_id = "dc40cb298a0b4974b91e6d2c9fdc816a";     // ARTIK5 device id (an4967@nate.com)
-var device_token = "fbc168035d504236bba99cb17ae249c8";  // ARTIK5 device token (an4967@nate.com)
+var device_id = "a84923401d1c44e3bbf0261aae684a6f";  //"dc40cb298a0b4974b91e6d2c9fdc816a";     // ARTIK5 device id (common.artik@gmail.com)
+var device_token = "afd710cb2eea4b838ae254da7a893a25"; //"fbc168035d504236bba99cb17ae249c8"  // ARTIK5 device token (common.artik@gmail.com)
 
 function start() {
     //Create the websocket connection
@@ -42,6 +42,7 @@ function start() {
 
     ws.on('error', function(error) {        
     	console.log("Websocket connection Error : " + error.toString());
+		setTimeout(start, 2000, "2 sec");
     });
 
 }
@@ -57,6 +58,7 @@ function register(){
     }
     catch (e) {
 		console.error('Failed to register messages. Error in registering message: ' + e.toString());
+		setTimeout(start, 2000, "2 sec");
     }
 }
 
@@ -72,12 +74,21 @@ exports.sendToServer = function (light){
 				   };
 
         var payload = '{"sdid":"'+device_id+'", "type":"message", "data": '+JSON.stringify(data)+'}';
-        console.log('Sending payload ' + payload);
-        ws.send(payload, {mask: true});
+
+	
+		if(isWebSocketReady == true)
+		{
+		    console.log('Sending payload ' + payload);
+			    ws.send(payload, {mask: true});
+		}
+
     } catch (e) {
        console.error('Error in sending a message: ' + e.toString());
     }
 }
 
-start();
+exports.serverStart = function(){
+	console.log("server start!");
+	start();
+}
 

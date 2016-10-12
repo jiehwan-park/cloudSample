@@ -5,7 +5,7 @@ sdb shell mkdir -p /tmp/patchtmp
 
 echo -e "\n\n-------------date setting-------------"
 #date setting
-sdb shell date -s '2016-10-11 18:00:00'
+sdb shell date -s '2016-10-12 15:33:00'
 sdb shell systemctl stop alarm-server
 sdb shell hwclock --systohc
 

@@ -31,6 +31,8 @@ function float2int (value) {
 
 console.log("start_light_sensor");
 
+artik_server.serverStart();
+
 function updateSensor(){
 	// read sensor data
 	/*****************************************/	
@@ -42,6 +44,6 @@ function updateSensor(){
 	artik_server.sendToServer(data);
 }
 
-// Every 5 seconds, sensor data will be updated to ARTIK cloud
+// Every 1 seconds, sensor data will be updated to ARTIK cloud
 iv = setInterval(updateSensor, 1000);
 
