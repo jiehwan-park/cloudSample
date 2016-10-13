@@ -11,19 +11,19 @@ var hnd = pwm.open(device, channel);
 exports.startMotorCtrl = function(value){	
 	switch(value){
 		case 0 :
-			duty_cycle = 500000;
+			duty_cycle = 2500000;
 			break;
 		case 45 :
-			duty_cycle = 1000000;
+			duty_cycle = 2000000;
 			break;
 		case 90 :
 			duty_cycle = 1500000;
 			break;
 		case 135 :
-			duty_cycle = 2000000;
+			duty_cycle = 1000000;
 			break;
 		case 180 :
-			duty_cycle = 2500000;
+			duty_cycle = 500000;
 			break;
 		default :
 			duty_cycle = 1500000;
