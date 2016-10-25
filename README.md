@@ -1,6 +1,12 @@
 ##Instruction
 Please download the patch according to your target
-There is a patch related to demo.
+There is a patch related to cloud demo.
+And, this patch is composed with 2 groups of patchset.
+One is node_iotbus that node addon for capi-iotbus, and can be referred below path.
+* https://github.com/tizen-artik/node_iotbus
+And, the other is iotbus that is a package for control system io and capi.
+* https://github.com/tizen-artik/iotbus
+
 We checked the functionality based on the binary of tizen-common-artik_20161007.97 version.
 Please refer to below path to get the version.
 * http://download.tizen.org/releases/weekly/tizen/common_artik/tizen-common-artik_20161007.97/  => it will be updated and lasted.
