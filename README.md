@@ -1,5 +1,6 @@
 ##Instruction for simple guide
 ![alt tag](images/example-service.png)
+<pre>
 1) prepaer sensor board : ARTIK5 with Tizen
 2) prepaer actuator board : ARTIK10 with Tizen
 3) install "system IO Interface" module into each boards
@@ -14,7 +15,8 @@
 6) install sensor application
   * actuator_server.js
   * actuator_things.js
-  
+</pre>
+
 ##Instruction for developer
 Please download the patch according to your target
 There is a patch related to cloud demo.
