@@ -12,9 +12,11 @@
 5) install sensor application 
   * sensor_server.js  
   * sensor_things.js 
-6) install sensor application
+6) install actuator application
   * actuator_server.js
   * actuator_things.js
+- for working properly,
+you should check the Artik-Cloud usage first, and install physical sensor/actuator into proper peripheral port.
 </pre>
 
 ##Instruction for developer
