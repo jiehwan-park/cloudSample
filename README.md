@@ -18,7 +18,6 @@
 - for working properly,
 you should check the Artik-Cloud usage first, and install physical sensor/actuator into proper peripheral port.
 </pre>
-[![Alt text for your video](images/example-service.png)](images/Tizen_On_ARTIK_Demo_V1.0_Highquality.wmv)
 
 ##Instruction for developer
 Please download the patch according to your target
